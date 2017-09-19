@@ -1,9 +1,13 @@
 button {
     margin: 5px;
 }
+#show-buttons {
+    margin-bottom: 10px;
+}
 
 img {
     margin: 5px;
+    cursor: pointer;
 }
 .gif-wrapper {
     display: inline-block;
@@ -13,4 +17,7 @@ img {
 }
 .label {
     padding-left: 5px;
+}
+body {
+    background: url("../img/bg.png");
 }

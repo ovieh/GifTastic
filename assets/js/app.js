@@ -5,17 +5,20 @@ let topics = ["The Wire", "Arrested Development", "Game of Thrones", "Breaking B
     "The Shield", "Its Always Sunny In Philadelphia", "Mad Men", "Better Call Saul", "The Knick", "Rick and Morty", "True Detective", "Boardwalk Empire"
 ];
 
-topics.forEach(function (show) {
-    let button = $('<button>');
-    button.attr({
-        class: "btn btn-primary",
-        "data-show": show
-    });
-    // button.data("showName", show);
-    button.text(show);
-    $('#show-buttons').append(button);
+function generateButtons() {
+    topics.forEach(function (show) {
+        let button = $('<button class="gifs">');
+        button.attr({
+            class: "btn btn-primary",
+            "data-show": show
+        });
+        // button.data("showName", show);
+        button.text(show);
+        $('#show-buttons').append(button);
 
-}, this);
+    }, this);
+}
+generateButtons();
 
 $("#show-buttons").on("click", "button", function () {
     $("#image-area").empty();
@@ -27,22 +30,26 @@ $("#show-buttons").on("click", "button", function () {
 
     }).done(function (response) {
         console.log(response);
-        let length = response.data.length;
 
-
-
-        for (let i = 0; i < length; i++) {
-
-            let img = $("<img class='gifs'>");
+        for (let i = 0; i < 10; i++) {
+            let ratingInfo = response.data[i].rating;
+            let gifWrapper = $("<div class='gif-wrapper'>")
+            let img = $("<img>");
 
             img.attr({
                 "src": response.data[i].images.fixed_height_still.url,
                 "id": response.data[i].id,
-                "alt": show
+                "alt": show,
+                "class": "gifs"
 
             });
-            $("#image-area").append(img);
-            console.log(length);
+            // cardContent.text("Rating: " + rating);
+            let rating = $("<p class='rating'>");
+            rating.html("<span class='label'>Rating: </span>" + ratingInfo)
+
+            gifWrapper.append(img);
+            gifWrapper.append(rating);
+            $("#image-area").append(gifWrapper);
         }
 
 
@@ -50,7 +57,7 @@ $("#show-buttons").on("click", "button", function () {
 
 });
 
-$("#image-area").on("click", ".gifs", function(){
+$("#image-area").on("click", ".gifs", function () {
     console.log($(this));
     // console.log("blah");
 });

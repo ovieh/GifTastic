@@ -5,3 +5,9 @@ button {
 img {
     margin: 5px;
 }
+.gif-wrapper {
+    display: inline-block;
+    /* position: absolute; */
+    /* background-color: red; */
+    margin: 5px;
+}

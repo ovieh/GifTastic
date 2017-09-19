@@ -7,6 +7,7 @@ let topics = ["The Wire", "Arrested Development", "Game of Thrones", "Breaking B
 let gifPlayState = false;
 
 function generateButtons() {
+    $("#show-buttons").empty();
     topics.forEach(function (show) {
         let button = $('<button class="gifs">');
         button.attr({
@@ -71,4 +72,13 @@ $("#image-area").on("click", ".gifs", function () {
         gifPlayState = false;
     }
     console.log(gifPlayState);
+});
+
+$("#add-show").on("click", function(event) {
+    event.preventDefault();
+
+    let show = $("#tvshow-input").val().trim();
+
+    topics.push(show);
+    generateButtons();
 });

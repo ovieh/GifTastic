@@ -6,7 +6,7 @@
     ];
     let gifPlayState = false;
 
-    function generateButtons() {
+    let generateButtons = () => {
         $("#show-buttons").empty();
         topics.forEach(function (show) {
             let button = $('<button class="gifs">');
@@ -83,4 +83,4 @@
         topics.push(show);
         generateButtons();
     });
-})() //IIFE
+}()); //IIFE

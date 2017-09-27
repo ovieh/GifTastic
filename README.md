@@ -1,6 +1,6 @@
 # GifTastic
 
-This project dynamically displays GIFs of the users choice, utilzings Giphy's API, Javascript, HTML, and CSS. The live site can be seen [here](http://www.ovieh.com/GifTastic).
+This project dynamically displays GIFs of the users choice, utilzing Giphy's API, Javascript, HTML, and CSS. The live site can be seen [here](http://www.ovieh.com/GifTastic).
 
 ## Installation
 
